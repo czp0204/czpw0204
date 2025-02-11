@@ -18,4 +18,6 @@ cmake_install.cmake
 *.o
 *.a
 *.exe
+.vscode/tasks.json
+.vscode/launch.json
 
