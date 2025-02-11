@@ -3,4 +3,19 @@
 *.o
 *.out
 *.log
+# 忽略 CMake 配置和构建文件
+CMakeCache.txt
+CMakeFiles/
+Makefile
+Makefile2
+progress.marks
+TargetDirectories.txt
+CMakeInstall.cmake
+CMakeDirectoryInformation.cmake
+CMakeConfigLog.yaml
+cmake_install.cmake
+# 忽略编译器生成的文件
+*.o
+*.a
+*.exe
 
