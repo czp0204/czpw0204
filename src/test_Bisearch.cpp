@@ -44,30 +44,30 @@ void Solution::test_shortest_subarray() {
     // Test case 1: Subarray exists
     std::vector<int> nums1 = {2, 3, 1, 2, 4, 3};
     int s1 = 7;
-    int result1 = solution.shortest_subarray(s1, nums1);
+    int result1 = solution.minSubArrayLen(s1, nums1);
     std::cout << "Test case 1 - Expected: 2, Got: " << result1 << std::endl;
 
     // Test case 2: Subarray does not exist
     std::vector<int> nums2 = {1, 1, 1, 1, 1};
     int s2 = 11;
-    int result2 = solution.shortest_subarray(s2, nums2);
+    int result2 = solution.minSubArrayLen(s2, nums2);
     std::cout << "Test case 2 - Expected: 0, Got: " << result2 << std::endl;
 
     // Test case 3: Single element subarray
     std::vector<int> nums3 = {1, 2, 3, 4, 5};
     int s3 = 5;
-    int result3 = solution.shortest_subarray(s3, nums3);
+    int result3 = solution.minSubArrayLen(s3, nums3);
     std::cout << "Test case 3 - Expected: 1, Got: " << result3 << std::endl;
 
     // Test case 4: Entire array is the subarray
     std::vector<int> nums4 = {1, 2, 3, 4, 5};
     int s4 = 15;
-    int result4 = solution.shortest_subarray(s4, nums4);
+    int result4 = solution.minSubArrayLen(s4, nums4);
     std::cout << "Test case 4 - Expected: 5, Got: " << result4 << std::endl;
 
     // Test case 5: Empty array
     std::vector<int> nums5 = {};
     int s5 = 1;
-    int result5 = solution.shortest_subarray(s5, nums5);
+    int result5 = solution.minSubArrayLen(s5, nums5);
     std::cout << "Test case 5 - Expected: 0, Got: " << result5 << std::endl;
 }

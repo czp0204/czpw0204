@@ -115,7 +115,23 @@ int Solution::shortest_subarray(int s, std::vector<int>& nums)
     }
     return result == __INT32_MAX__?0:result;
 }
+//sliding window
 int Solution::minSubArrayLen(int s,std::vector<int>& nums)
 {
-    return 0;
+    int i =0; //start point index
+    int sum = 0;//to compare with given s 
+    int sublength = 0;//every length with respect to the start index
+    int result = __INT32_MAX__;//to store possible result
+    for(int j = 0;j<nums.size();j++)
+    {
+        sum+=nums[j];//cumulate the sum of array
+        while(sum>=s)
+        {
+            sublength=j-i+1;
+            result = result> sublength?sublength:result;
+            sum-=nums[i++];
+
+        }
+    }
+    return result == __INT32_MAX__?0:result;    
 }
