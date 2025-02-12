@@ -3,7 +3,7 @@
 #define SOLUTION_H
 
 #include <vector>  // For vector
-
+using namespace std;
 class Solution {
 public:
     // Function declaration
@@ -13,8 +13,10 @@ public:
     int binary_review(std::vector<int>& nums, int target);//20250210 review pracice
     void test_binary_view();
     void test_shortest_subarray();
+    void test_generateMatrix();
     int shortest_subarray(int s, std::vector<int> &nums); // rude
     int minSubArrayLen(int s, std::vector<int> &nums);
+    vector<vector<int>> generateMatrix(int n);
 };
 
 /// @brief 

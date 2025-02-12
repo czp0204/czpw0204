@@ -22,7 +22,8 @@ vector<int> nums = {3, 2, 3, 2, 3, 4, 5, 3};
     //int siez = re.removeElementReview2(nums,3);
     //cout << "New size after removing elements: " << siez << endl;
     //sol.test_binary_view();
-    sol.test_shortest_subarray();
+    //sol.test_shortest_subarray();
+    sol.test_generateMatrix();
     return 0;
 }
 //cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=TRUE -S /home/czp/C++Python -B /home/czp/C++Python/build

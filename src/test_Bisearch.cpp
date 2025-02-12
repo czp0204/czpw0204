@@ -71,3 +71,63 @@ void Solution::test_shortest_subarray() {
     int result5 = solution.minSubArrayLen(s5, nums5);
     std::cout << "Test case 5 - Expected: 0, Got: " << result5 << std::endl;
 }
+
+
+void Solution::test_generateMatrix() {
+    Solution solution;
+
+    // Test case 1: n = 1
+    int n1 = 1;
+    std::vector<std::vector<int>> result1 = solution.generateMatrix(n1);
+    std::cout << "Test case 1 - Expected: [[1]], Got: [[";
+    for (const auto& row : result1) {
+        for (const auto& elem : row) {
+            std::cout << elem << " ";
+        }
+    }
+    std::cout << "]]" << std::endl;
+
+    // Test case 2: n = 2
+    int n2 = 2;
+    std::vector<std::vector<int>> result2 = solution.generateMatrix(n2);
+    std::cout << "Test case 2 - Expected: [[1, 2], [4, 3]], Got: [[";
+    for (const auto& row : result2) {
+        for (const auto& elem : row) {
+            std::cout << elem << " ";
+        }
+    }
+    std::cout << "]]" << std::endl;
+
+    // Test case 3: n = 3
+    int n3 = 3;
+    std::vector<std::vector<int>> result3 = solution.generateMatrix(n3);
+    std::cout << "Test case 3 - Expected: [[1, 2, 3], [8, 9, 4], [7, 6, 5]], Got: [[";
+    for (const auto& row : result3) {
+        for (const auto& elem : row) {
+            std::cout << elem << " ";
+        }
+    }
+    std::cout << "]]" << std::endl;
+
+    // Test case 4: n = 4
+    int n4 = 4;
+    std::vector<std::vector<int>> result4 = solution.generateMatrix(n4);
+    std::cout << "Test case 4 - Expected: [[1, 2, 3, 4], [12, 13, 14, 5], [11, 16, 15, 6], [10, 9, 8, 7]], Got: [[";
+    for (const auto& row : result4) {
+        for (const auto& elem : row) {
+            std::cout << elem << " ";
+        }
+    }
+    std::cout << "]]" << std::endl;
+
+    // Test case 5: n = 5
+    int n5 = 5;
+    std::vector<std::vector<int>> result5 = solution.generateMatrix(n5);
+    std::cout << "Test case 5 - Expected: [[1, 2, 3, 4, 5], [16, 17, 18, 19, 6], [15, 24, 25, 20, 7], [14, 23, 22, 21, 8], [13, 12, 11, 10, 9]], Got: [[";
+    for (const auto& row : result5) {
+        for (const auto& elem : row) {
+            std::cout << elem << " ";
+        }
+    }
+    std::cout << "]]" << std::endl;
+}

@@ -135,3 +135,47 @@ int Solution::minSubArrayLen(int s,std::vector<int>& nums)
     }
     return result == __INT32_MAX__?0:result;    
 }
+// leetcode 59. spiral matrix,Prncinple :left inclusive,right exclusive
+std::vector<std::vector<int>> Solution::generateMatrix(int n)
+{
+    std::vector<std::vector<int>> result(n, std::vector<int>(n, 0));
+    
+    int startx = 0;
+    int starty = 0;
+    int looptime = n / 2; // circle time
+    int mid = n / 2;//set middle coordinate if n is a odd number
+    int offset = 1; // control the length of each for loop
+    int count = 1;//literally count number from 1 to n 1
+    int i, j;
+
+    while (looptime--) {
+        i=startx;j=starty; // set zero when we get back to the start of loop
+        for(j=starty;j<starty + n- offset;j++)// update the row value of matrix, i
+        {
+            result[startx][j] = count++;
+        }
+        for(i=starty;i<starty + n- offset;i++)
+        {
+            result[i][j] = count++;
+        }
+        for(;j>starty;j--)
+        {
+            result[i][j] = count++;
+        }
+        for(;i>startx;i--)
+        {
+            result[i][j] = count++;
+        }
+        startx++;
+        starty++;
+        offset+=2;
+
+    }
+    if(n%2){
+        result[mid][mid] = count;
+    }
+
+    return result;
+}
+
+
