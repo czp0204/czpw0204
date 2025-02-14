@@ -178,4 +178,16 @@ std::vector<std::vector<int>> Solution::generateMatrix(int n)
     return result;
 }
 
+//reviex spiral matrix on 20250214
+vector<vector<int>> Solution::reviewSpiralmatrix(int n )
+{
+    vector<vector<int>> res(n,0); //construct a vector made by zeros
+    /*remember some key points,some time invariant,and variant
+    first the prinple of left inclusive and right exclusive
+    second the length of every for loop will be start index plus n minus offset
+    ,whcih is a variant value through the loop time decrease
+    */
+
+}
+
 
