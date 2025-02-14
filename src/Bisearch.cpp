@@ -181,12 +181,46 @@ std::vector<std::vector<int>> Solution::generateMatrix(int n)
 //reviex spiral matrix on 20250214
 vector<vector<int>> Solution::reviewSpiralmatrix(int n )
 {
-    vector<vector<int>> res(n,0); //construct a vector made by zeros
+    vector<vector<int>> res(n,vector<int>(n,0)); //construct a vector made by zeros, grammar
     /*remember some key points,some time invariant,and variant
     first the prinple of left inclusive and right exclusive
     second the length of every for loop will be start index plus n minus offset
     ,whcih is a variant value through the loop time decrease
     */
+   int loop = n / 2; // divide / performs floor division
+   int offset = 1; // to calculate the lengeh
+   int startx = 0; // start x point for every new loop, downward, the row index of matrix
+   int starty = 0; // similar to above
+   int i,j;//
+   int count = 1;//cumulative assignment for matrix
+   int mid = n/2;
+   while(loop--)//
+   {
+        i = startx; j = starty;
+        for(j=starty;j<starty+n-offset;j++)//left inclusive and right exclusive
+        {
+            res[i][j]=count++; // assignment for first outermost row
+        }
+        for(i=startx;i<startx+n-offset;i++)
+        {
+            res[i][j]=count++; //right outermost column
+        }
+        for(;j>starty;j--)
+        {
+            res[i][j]=count++;
+        }
+        for(;i>startx;i--)
+        {
+            res[i][j]=count++;
+        }
+        offset+=2;
+        startx++;starty++;
+    }
+    if(n%2)
+    {
+        res[mid][mid]=n*n;
+    }
+    return res;
 
 }
 

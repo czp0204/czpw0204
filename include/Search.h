@@ -17,6 +17,7 @@ public:
     int shortest_subarray(int s, std::vector<int> &nums); // rude
     int minSubArrayLen(int s, std::vector<int> &nums);
     vector<vector<int>> generateMatrix(int n);
+    vector<vector<int>> reviewSpiralmatrix(int n );//20250214
 };
 
 /// @brief 
