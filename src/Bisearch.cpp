@@ -178,7 +178,7 @@ std::vector<std::vector<int>> Solution::generateMatrix(int n)
     return result;
 }
 
-//reviex spiral matrix on 20250214
+//review spiral matrix on 20250214
 vector<vector<int>> Solution::reviewSpiralmatrix(int n )
 {
     vector<vector<int>> res(n,vector<int>(n,0)); //construct a vector made by zeros, grammar
@@ -224,4 +224,40 @@ vector<vector<int>> Solution::reviewSpiralmatrix(int n )
 
 }
 
+ListNode* solution2::removeElements(ListNode* head,int val)
+{//delete the head node,similar with destructor to clean up any allocated memory
+    /*The active selection is a `while` loop that iterates through a linked list and 
+    removes nodes from the head of the list as long as certain conditions are met. 
+    Specifically, it continues to delete nodes while the head pointer is not `NULL` 
+    and the value stored in the head node (`head->val`) is equal to a specified value (`val`).
+    The condition `head != NULL` ensures that the loop only runs if there are still nodes 
+    in the list. The condition `head->val == val` checks if the value of the current head 
+    node matches the specified value `val`.
 
+    */
+    while(head != NULL&&head->val==val)
+    {
+        ListNode* temp = head;
+        head = head->next;
+        delete temp;
+    }
+    //delete the other nodes
+    ListNode* cur = head;
+    while(cur!=NULL&&cur->next!=NULL)//iterate through all nodes
+    {   
+        if(cur->next->val==val){ //if the ele behind head is the target
+            ListNode* temp = cur;
+            cur->next = temp->next->next;
+            delete temp;
+        } else {
+            cur = cur->next;//check next one
+        }
+
+    }
+    return head;
+}
+
+ListNode *solution2::removeElementsWithSentinel(ListNode *head, int val)
+{   
+    return head;
+}

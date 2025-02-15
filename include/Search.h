@@ -27,4 +27,24 @@ struct remove_
     int removeElementReview2(std::vector<int> &nums, int val);
 };
 
+struct ListNode 
+{
+    int val;// element stored in node
+    ListNode *next;
+    ListNode(int x): val(x),next(nullptr) {};// constructor
+};
+
+class solution2
+{
+private:
+    /* data */
+public:
+//core role is deleting the node that value = val
+    ListNode* removeElements(ListNode* head,int val);//without dummy sentinel
+    ListNode* removeElementsWithSentinel(ListNode* head,int val);
+    
+};
+
+
+
 #endif  // SOLUTION_H
