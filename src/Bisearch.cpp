@@ -246,9 +246,9 @@ ListNode* solution2::removeElements(ListNode* head,int val)
     while(cur!=NULL&&cur->next!=NULL)//iterate through all nodes
     {   
         if(cur->next->val==val){ //if the ele behind head is the target
-            ListNode* temp = cur;
+            ListNode* temp = cur;// to safely deallocate the memory
             cur->next = temp->next->next;
-            delete temp;
+            delete temp;//deallocate
         } else {
             cur = cur->next;//check next one
         }
@@ -258,6 +258,24 @@ ListNode* solution2::removeElements(ListNode* head,int val)
 }
 
 ListNode *solution2::removeElementsWithSentinel(ListNode *head, int val)
-{   
+{   ListNode* sentinel = new ListNode(0);//set a dummy object, a virtual head
+    sentinel->next = head;
+    ListNode* cur = sentinel;//cur is a auxilary variable does not affect the list
+    while (cur->next!=NULL)
+    {   if (cur->next->val==val)
+            {
+                ListNode* temp = cur->next;
+                cur->next = cur->next->next;
+                delete temp;
+            }
+        else{
+            cur = cur->next;
+        }
+    
+
+    }
+    head = sentinel->next;
+    delete sentinel;
+
     return head;
 }
