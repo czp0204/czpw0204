@@ -31,7 +31,7 @@ struct remove_
 struct ListNode 
 {
     int val;// element stored in node
-    ListNode *next;
+    ListNode *next;// define a pointer point to this type of self-define datastructure
     ListNode(int x): val(x),next(nullptr) {};// constructor
 };
 
@@ -46,9 +46,27 @@ public:
     
 };
 
-class LinkedList{
+class LinkedList
+{
     public:
+        struct Listnode
+        {
+            int val;
+            Listnode* next;
+            Listnode(int x): val(x),next(nullptr) {};
+        };
+        LinkedList(){_size = 0; _dummyhead = new Listnode(0);}
+
+        int get(int index);
+        void addAthead(int val);
+        void addAttail(int val);
+        void addAtIndex(int index,int val);
+        void removeAtIndex(int index);
         void printLinkedList(std::list<int>& refer);
+
+        private:
+        int _size;
+        Listnode _dummyhead;
 };
 
 #endif  // SOLUTION_H

@@ -132,7 +132,36 @@ void Solution::test_generateMatrix() {
     std::cout << "]]" << std::endl;
 }
 
-void LinkedList::printLinkedList(std::list<int>& refer)
+int LinkedList::get(int index)
+{   if (index>(_size-1)||index<0)
+    {
+        return -1;
+    }
+    Listnode* cur = _dummyhead->next;
+    while (index--)
+    {
+        cur = cur->next;// without a *
+    }
+    return cur->val;
+    }
+
+void LinkedList::addAthead(int val)
+{
+}
+
+void LinkedList::addAttail(int val)
+{
+}
+
+void LinkedList::addAtIndex(int index, int val)
+{
+}
+
+void LinkedList::removeAtIndex(int index)
+{
+}
+
+void LinkedList::printLinkedList(std::list<int> &refer)
 {
     std::cout<< "LinkedList elements: ";
     for(int val : refer) {
