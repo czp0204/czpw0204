@@ -3,6 +3,7 @@
 #define SOLUTION_H
 
 #include <vector>  // For vector
+#include <list>
 using namespace std;
 class Solution {
 public:
@@ -45,6 +46,9 @@ public:
     
 };
 
-
+class LinkedList{
+    public:
+        void printLinkedList(std::list<int>& refer);
+};
 
 #endif  // SOLUTION_H

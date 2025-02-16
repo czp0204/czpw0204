@@ -132,6 +132,25 @@ void Solution::test_generateMatrix() {
     std::cout << "]]" << std::endl;
 }
 
+void LinkedList::printLinkedList(std::list<int>& refer)
+{
+    std::cout<< "LinkedList elements: ";
+    for(int val : refer) {
+        std:cout << val << " ";
+    }
+    std::cout << std::endl;
+
+    refer.pop_back();
+    refer.pop_front();
+
+    std::cout<<"after pop";
+    for(int val : refer){
+        std::cout<<val<<" ";
+
+    }
+    std::cout << std::endl;
+
+}
 
 
 
