@@ -63,10 +63,12 @@ class LinkedList
         void addAtIndex(int index,int val);
         void removeAtIndex(int index);
         void printLinkedList(std::list<int>& refer);
+        void printlinkedlist();
+        void testLinkedList();
 
         private:
-        int _size;
-        Listnode _dummyhead;
+        int _size;//the number of nodes
+        Listnode* _dummyhead;
 };
 
 #endif  // SOLUTION_H

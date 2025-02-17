@@ -14,6 +14,7 @@ int main() {
 
 vector<int> nums = {3, 2, 3, 2, 3, 4, 5, 3};
     Solution sol; // Create an instance of the Solution class
+    LinkedList list2;
     remove_ re; // Create an instance of the remove struct
     // int target = 2;
     // int index = sol.binary_search1(nums, target);
@@ -32,7 +33,8 @@ vector<int> nums = {3, 2, 3, 2, 3, 4, 5, 3};
     test_list.push_back(30);
     test_list.push_front(5);
 
-    list.printLinkedList(test_list);
+    //list.printLinkedList(test_list);
+    list2.testLinkedList();
     return 0;
 }
 //cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=TRUE -S /home/czp/C++Python -B /home/czp/C++Python/build

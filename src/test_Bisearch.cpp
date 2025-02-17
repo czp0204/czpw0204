@@ -2,6 +2,7 @@
 #include <vector>
 #include "../include/Search.h"
 #include "Search.h"
+#include <cassert>
 
 void Solution::test_binary_view() {
     Solution solution;
@@ -132,53 +133,38 @@ void Solution::test_generateMatrix() {
     std::cout << "]]" << std::endl;
 }
 
-int LinkedList::get(int index)
-{   if (index>(_size-1)||index<0)
-    {
-        return -1;
-    }
-    Listnode* cur = _dummyhead->next;
-    while (index--)
-    {
-        cur = cur->next;// without a *
-    }
-    return cur->val;
-    }
+void LinkedList::testLinkedList() {
+    LinkedList list;
 
-void LinkedList::addAthead(int val)
-{
-}
+    // Test addAthead
+    list.addAthead(1);
+    assert(list.get(0) == 1);
 
-void LinkedList::addAttail(int val)
-{
-}
+    // Test addAttail
+    list.addAttail(2);
+    assert(list.get(1) == 2);
 
-void LinkedList::addAtIndex(int index, int val)
-{
-}
+    // Test addAtIndex
+    list.addAtIndex(1, 3);
+    assert(list.get(1) == 3);
+    assert(list.get(2) == 2);
 
-void LinkedList::removeAtIndex(int index)
-{
-}
+    // Test removeAtIndex
+    list.removeAtIndex(1);
+    assert(list.get(1) == 2);
 
-void LinkedList::printLinkedList(std::list<int> &refer)
-{
-    std::cout<< "LinkedList elements: ";
-    for(int val : refer) {
-        std:cout << val << " ";
-    }
-    std::cout << std::endl;
+    // Test get
+    assert(list.get(0) == 1);
+    assert(list.get(1) == 2);
 
-    refer.pop_back();
-    refer.pop_front();
+    // Test printLinkedList
+    std::list<int> referenceList = {1, 2};
+    list.printLinkedList(referenceList);
 
-    std::cout<<"after pop";
-    for(int val : refer){
-        std::cout<<val<<" ";
+    // Test printlinkedlist
+    list.printlinkedlist();
 
-    }
-    std::cout << std::endl;
-
+    std::cout << "All tests passed!" << std::endl;
 }
 
 

@@ -3,6 +3,7 @@
 #include <vector>  // Include the vector header
 #include <stdlib.h>
 #include "Search.h"
+#include <iostream>
 
 int Solution::binary_search1(std::vector<int>& nums, int target) {
     size_t left = 0;
@@ -278,4 +279,100 @@ ListNode *solution2::removeElementsWithSentinel(ListNode *head, int val)
     delete sentinel;
 
     return head;
+}
+
+int LinkedList::get(int index) //index start at first acutal node contains a value
+{   if (index>(_size-1)||index<0)
+    {
+        return -1;
+    }
+    Listnode* cur = _dummyhead->next;/*just a pointer,not a new node*/
+    while (index--)
+    {
+        cur = cur->next;// without a *
+    }
+    return cur->val;
+    }
+
+void LinkedList::addAthead(int val)
+{
+    Listnode* newNode = new Listnode(val);
+    newNode->next = _dummyhead->next;
+    _dummyhead->next = newNode;
+    _size++;
+}
+
+void LinkedList::addAttail(int val)
+{
+    //wrong: Listnode* cur = new Listnode(0); already have a dummyhead equals 0
+    //wrong "cur = _dummyhead->next;" what if it's an empty list
+    Listnode* cur = _dummyhead;
+    while(cur->next!=NULL){cur = cur->next;}
+    Listnode* newNode = new Listnode(val);
+    cur->next = newNode;
+    //delete cur; wrong, cur is NOT is temperoary node.It's a pointer point to elements within list
+    _size++;
+}
+
+void LinkedList::addAtIndex(int index, int val)
+{
+    if(index>_size){return; }
+    Listnode* newNode = new Listnode(val);
+    Listnode* cur = _dummyhead;//attention to the previous Get function
+    while (index--)
+    {
+        cur = cur->next;
+    }/*after this loop,cur points at the last node of list*/
+    newNode->next = cur->next;
+    cur->next = newNode;
+    _size++;
+    
+}
+
+void LinkedList::removeAtIndex(int index)
+{
+    if(index>(_size-1)||index<0){
+        std::cerr << "wrong index" << std::flush;
+        return ;
+    }
+    Listnode* cur = _dummyhead;
+    while (index--)
+    {
+        cur = cur->next;//now cur locates just before index
+    }
+    Listnode* tmp = cur->next;
+    cur->next = tmp->next;
+    delete tmp;
+    _size--;
+
+}
+
+void LinkedList::printLinkedList(std::list<int> &refer)
+{
+    std::cout<< "LinkedList elements: ";
+    for(int val : refer) {
+        std:cout << val << " ";
+    }
+    std::cout << std::endl;
+
+    refer.pop_back();
+    refer.pop_front();
+
+    std::cout<<"after pop";
+    for(int val : refer){
+        std::cout<<val<<" ";
+
+    }
+    std::cout << std::endl;
+
+}
+
+void LinkedList::printlinkedlist()
+{
+    Listnode* cur = _dummyhead;
+    while(cur->next!=NULL){
+        std::cout<< cur->next->val<<" ";
+        cur = cur->next;
+    }
+    std::cout << std::endl;
 }
