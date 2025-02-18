@@ -376,3 +376,16 @@ void LinkedList::printlinkedlist()
     }
     std::cout << std::endl;
 }
+ListNode* LinkedList::reverseList(ListNode *head)
+{
+    ListNode* pre = NULL;
+    ListNode* cur = *head;
+    ListNode* tmp = NULL; //declaration but not initilai
+    while(cur){
+        ListNode* tmp = cur->next;
+        cur->next = pre;
+        pre = cur;
+        cur = tmp;
+    }
+    return pre;
+}

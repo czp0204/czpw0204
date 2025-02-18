@@ -169,3 +169,34 @@ void LinkedList::testLinkedList() {
 
 
 
+void LinkedList::testReverseList() {
+    LinkedList list;
+
+    // Test case 1: Reverse a list with multiple elements
+    ListNode* head1 = new ListNode(1);
+    head1->next = new ListNode(2);
+    head1->next->next = new ListNode(3);
+    head1->next->next->next = new ListNode(4);
+    head1->next->next->next->next = new ListNode(5);
+
+    ListNode* reversedHead1 = list.reverseList(head1);
+    std::vector<int> expected1 = {5, 4, 3, 2, 1};
+    ListNode* current1 = reversedHead1;
+    for (int val : expected1) {
+        assert(current1->val == val);
+        current1 = current1->next;
+    }
+
+    // Test case 2: Reverse a list with a single element
+    ListNode* head2 = new ListNode(1);
+    ListNode* reversedHead2 = list.reverseList(head2);
+    assert(reversedHead2->val == 1);
+    assert(reversedHead2->next == nullptr);
+
+    // Test case 3: Reverse an empty list
+    ListNode* head3 = nullptr;
+    ListNode* reversedHead3 = list.reverseList(head3);
+    assert(reversedHead3 == nullptr);
+
+    std::cout << "All reverse list tests passed!" << std::endl;
+}
