@@ -65,8 +65,9 @@ class LinkedList
         void printLinkedList(std::list<int>& refer);
         void printlinkedlist();
         void testLinkedList();
-        ListNode* reverseList(Listnode* head);
+        ListNode* reverseList(ListNode* head);
         void testReverseList();
+        ListNode* remove_nth_fromEnd(ListNode* head,int n);
         private:
         int _size;//the number of nodes
         Listnode* _dummyhead;

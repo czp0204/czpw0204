@@ -376,10 +376,11 @@ void LinkedList::printlinkedlist()
     }
     std::cout << std::endl;
 }
+//sliding window also named doublt pointers method
 ListNode* LinkedList::reverseList(ListNode *head)
 {
     ListNode* pre = NULL;
-    ListNode* cur = *head;
+    ListNode* cur = head;
     ListNode* tmp = NULL; //declaration but not initilai
     while(cur){
         ListNode* tmp = cur->next;
@@ -389,3 +390,29 @@ ListNode* LinkedList::reverseList(ListNode *head)
     }
     return pre;
 }
+//remove the nth node from the end of the list
+/*Classical sliding window problem,slow and fast,then updated together
+first key point is fast needs to move n+1 steps at first 
+cause the gap between the fast(end) and slow is n,and fast shall just befor the 
+target index, when move n steps, it'target ,n should smaller than size,
+but in this case, we just ignore that condition or ommition */
+ListNode* LinkedList::remove_nth_fromEnd(ListNode *head, int n)
+{   
+    ListNode* dummyhead = new ListNode(0);
+    ListNode* fast = dummyhead;
+    ListNode* slow = dummyhead;
+    while(n--){
+        fast = fast->next;
+    }
+    fast = fast->next; // move n+1 steps forward
+    while(fast!=nullptr){
+        fast = fast->next;
+        slow = slow->next;
+    }
+    ListNode* tmp = slow->next;
+    slow->next = slow->next->next;
+    delete tmp;
+    return dummyhead->next;
+}
+/*  cycle
+*/
