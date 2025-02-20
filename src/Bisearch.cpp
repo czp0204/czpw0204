@@ -414,5 +414,25 @@ ListNode* LinkedList::remove_nth_fromEnd(ListNode *head, int n)
     delete tmp;
     return dummyhead->next;
 }
+bool HashtableSolution::isAnagram(string s, string t)
+{   
+    int dic[26] = {0};
+    for (size_t i = 0; i < s.size(); i++)
+    {
+        dic[s[i]-'a']++;
+    }
+    for (size_t i = 0; i < t.size(); i++)
+    {
+        dic[t[i]-'a']--;
+    }
+    for (auto ele : dic)
+    {
+        if(ele!=0){
+            return false;
+        }
+    }
+
+    return true;
+}
 /*  cycle
 */

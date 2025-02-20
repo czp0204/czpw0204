@@ -4,6 +4,7 @@
 
 #include <vector>  // For vector
 #include <list>
+#include <string>
 using namespace std;
 class Solution {
 public:
@@ -72,5 +73,16 @@ class LinkedList
         int _size;//the number of nodes
         Listnode* _dummyhead;
 };
+
+class HashtableSolution
+{
+private:
+    /* data */
+public:
+    bool isAnagram(string s, string t);
+    void test_isAnagram();//Compare 2 strings to find if they can be identical through 
+};
+
+
 
 #endif  // SOLUTION_H

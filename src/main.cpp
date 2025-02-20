@@ -35,14 +35,17 @@ vector<int> nums = {3, 2, 3, 2, 3, 4, 5, 3};
 
     //list.printLinkedList(test_list);
     list2.testLinkedList();*/
-    Solution solution;
-    LinkedList list;
+    // Solution solution;
+    // LinkedList list;
 
-    solution.test_binary_view();
-    solution.test_shortest_subarray();
-    solution.test_generateMatrix();
-    list.testLinkedList();
-    list.testReverseList();
+    // solution.test_binary_view();
+    // solution.test_shortest_subarray();
+    // solution.test_generateMatrix();
+    // list.testLinkedList();
+    // list.testReverseList();
+
+    HashtableSolution findAna;
+    findAna.test_isAnagram();
     return 0;
 }
 //cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=TRUE -S /home/czp/C++Python -B /home/czp/C++Python/build

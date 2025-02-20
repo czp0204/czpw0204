@@ -202,3 +202,37 @@ void LinkedList::testReverseList() {
 }
 
 
+
+void HashtableSolution::test_isAnagram() {
+    HashtableSolution solution;
+
+    // Test case 1: Anagrams
+    std::string s1 = "listen";
+    std::string t1 = "silent";
+    bool result1 = solution.isAnagram(s1, t1);
+    std::cout << "Test case 1 - Expected: true, Got: " << std::boolalpha << result1 << std::endl;
+
+    // Test case 2: Not anagrams
+    std::string s2 = "hello";
+    std::string t2 = "world";
+    bool result2 = solution.isAnagram(s2, t2);
+    std::cout << "Test case 2 - Expected: false, Got: " << std::boolalpha << result2 << std::endl;
+
+    // Test case 3: Different lengths
+    std::string s3 = "abc";
+    std::string t3 = "abcd";
+    bool result3 = solution.isAnagram(s3, t3);
+    std::cout << "Test case 3 - Expected: false, Got: " << std::boolalpha << result3 << std::endl;
+
+    // Test case 4: Empty strings
+    std::string s4 = "";
+    std::string t4 = "";
+    bool result4 = solution.isAnagram(s4, t4);
+    std::cout << "Test case 4 - Expected: true, Got: " << std::boolalpha << result4 << std::endl;
+
+    // Test case 5: Same characters, different frequencies
+    std::string s5 = "aabbcc";
+    std::string t5 = "abc";
+    bool result5 = solution.isAnagram(s5, t5);
+    std::cout << "Test case 5 - Expected: false, Got: " << std::boolalpha << result5 << std::endl;
+}
