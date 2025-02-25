@@ -3,6 +3,7 @@
 #include "../include/Search.h"
 #include "Search.h"
 #include <cassert>
+#include <algorithm>
 
 void Solution::test_binary_view() {
     Solution solution;
@@ -235,4 +236,58 @@ void HashtableSolution::test_isAnagram() {
     std::string t5 = "abc";
     bool result5 = solution.isAnagram(s5, t5);
     std::cout << "Test case 5 - Expected: false, Got: " << std::boolalpha << result5 << std::endl;
+}
+
+void HashtableSolution::test_intersection() {
+    HashtableSolution solution;
+
+    // Test case 1: Common elements exist
+    std::vector<int> nums1_1 = {1, 2, 2, 1};
+    std::vector<int> nums2_1 = {2, 2};
+    std::vector<int> result1 = solution.intersection(nums1_1, nums2_1);
+    std::vector<int> expected1 = {2};
+    std::sort(result1.begin(), result1.end());
+    std::sort(expected1.begin(), expected1.end());
+    assert(result1 == expected1);
+    std::cout << "Test case 1 passed!" << std::endl;
+
+    // Test case 2: No common elements
+    std::vector<int> nums1_2 = {1, 2, 3};
+    std::vector<int> nums2_2 = {4, 5, 6};
+    std::vector<int> result2 = solution.intersection(nums1_2, nums2_2);
+    std::vector<int> expected2 = {};
+    std::sort(result2.begin(), result2.end());
+    std::sort(expected2.begin(), expected2.end());
+    assert(result2 == expected2);
+    std::cout << "Test case 2 passed!" << std::endl;
+
+    // Test case 3: One array is empty
+    std::vector<int> nums1_3 = {1, 2, 3};
+    std::vector<int> nums2_3 = {};
+    std::vector<int> result3 = solution.intersection(nums1_3, nums2_3);
+    std::vector<int> expected3 = {};
+    std::sort(result3.begin(), result3.end());
+    std::sort(expected3.begin(), expected3.end());
+    assert(result3 == expected3);
+    std::cout << "Test case 3 passed!" << std::endl;
+
+    // Test case 4: Both arrays are empty
+    std::vector<int> nums1_4 = {};
+    std::vector<int> nums2_4 = {};
+    std::vector<int> result4 = solution.intersection(nums1_4, nums2_4);
+    std::vector<int> expected4 = {};
+    std::sort(result4.begin(), result4.end());
+    std::sort(expected4.begin(), expected4.end());
+    assert(result4 == expected4);
+    std::cout << "Test case 4 passed!" << std::endl;
+
+    // Test case 5: All elements are common
+    std::vector<int> nums1_5 = {1, 2, 3};
+    std::vector<int> nums2_5 = {1, 2, 3};
+    std::vector<int> result5 = solution.intersection(nums1_5, nums2_5);
+    std::vector<int> expected5 = {1, 2, 3};
+    std::sort(result5.begin(), result5.end());
+    std::sort(expected5.begin(), expected5.end());
+    assert(result5 == expected5);
+    std::cout << "Test case 5 passed!" << std::endl;
 }

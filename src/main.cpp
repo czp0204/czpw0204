@@ -4,6 +4,8 @@
 #include <chrono>
 #include <vector>
 #include <list>
+#include <map>
+#include <set>
 
 using namespace std;
 using namespace chrono;
@@ -45,7 +47,8 @@ vector<int> nums = {3, 2, 3, 2, 3, 4, 5, 3};
     // list.testReverseList();
 
     HashtableSolution findAna;
-    findAna.test_isAnagram();
+    //findAna.test_isAnagram();
+    findAna.test_intersection();
     return 0;
 }
 //cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=TRUE -S /home/czp/C++Python -B /home/czp/C++Python/build

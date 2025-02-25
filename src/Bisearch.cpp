@@ -4,6 +4,10 @@
 #include <stdlib.h>
 #include "Search.h"
 #include <iostream>
+#include <set>
+#include <unordered_map>
+#include <unordered_set>
+#include <map>
 
 int Solution::binary_search1(std::vector<int>& nums, int target) {
     size_t left = 0;
@@ -435,4 +439,19 @@ bool HashtableSolution::isAnagram(string s, string t)
     return true;
 }
 /*  cycle
+intersection using unordered_map
 */
+vector<int> HashtableSolution::intersection(vector<int> &nums1, vector<int> &nums2)
+{   
+    unordered_set<int> result;// store the result
+    unordered_set<int> final_set;
+    result.insert(nums1.cbegin(),nums1.cend());//using iterator range to initialize
+
+    for(int ele : nums2){
+        if(result.find(ele)!=result.end()){
+            final_set.insert(ele);
+        }
+    }
+    vector<int> final(final_set.cbegin(),final_set.cend());
+    return final;
+}
