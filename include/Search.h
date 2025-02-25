@@ -83,6 +83,7 @@ public:
     void test_isAnagram();//Compare 2 strings to find if they can be identical through 
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2);
     void test_intersection();
+    vector<int> twoSum(vector<int> nums, int target);
 };
 
 

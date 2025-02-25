@@ -455,3 +455,27 @@ vector<int> HashtableSolution::intersection(vector<int> &nums1, vector<int> &num
     vector<int> final(final_set.cbegin(),final_set.cend());
     return final;
 }
+
+vector<int> HashtableSolution::twoSum(vector<int> nums, int target){
+    // for(int i =0;i<nums.size();i++){
+    //     for(int j =i+1;j<nums.size();j++){
+    //         if(nums[i]=nums[j]==target){
+    //             return {i,j};
+    //         }
+    //     }
+    // } crude method O(n^2) complexity
+    // return {};// legal and efficiency, using constructor inplicitly
+
+    unordered_map<int,int> map;
+    for(int i = 0 ;i<nums.size();i++){
+        unordered_map<int,int>::iterator iter = map.find(target-nums[i]);
+        if (iter!=map.end())
+        {
+            /* code */
+            return {iter->second,i};
+        }
+        map.insert({nums[i],i});//map[nums[i]] = i; maps.insert(make_pair()) (pair<int,int> ())
+        //map.insert(map<int,int>::value_type());    
+    }
+    return {};
+}
