@@ -84,6 +84,7 @@ public:
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2);
     void test_intersection();
     vector<int> twoSum(vector<int> nums, int target);
+    vector<int> forsum(vector<int>&A,vector<int>&B,vector<int>&C,vector<int>&D);
 };
 
 

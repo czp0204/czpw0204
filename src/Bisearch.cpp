@@ -479,3 +479,29 @@ vector<int> HashtableSolution::twoSum(vector<int> nums, int target){
     }
     return {};
 }
+
+vector<int> HashtableSolution::forsum(vector<int> &A, vector<int> &B, vector<int> &C, vector<int> &D)
+{   
+    unordered_map <int,int> umap;
+    for(int a :A){
+        for(int b:B){
+            auto ret = umap.insert(unordered_map<int,int>::value_type((a+b),1));
+         // auto ret = umap.insert({(a+b),1});
+         // auto ret = umap.insert(make_pair()) make_pair infer the type automatically
+         // pair<int,int>() another way to insert
+            if(!ret.second){
+                ++ret.first->second; //umap[a+b]++;
+            }
+        }
+    }
+    int count = 0; //cumulative quantity
+    for(int c:C){
+        for(int d:D){
+            if(umap.find(0-c-d)!=umap.end()){
+                count+=umap[0-c-d];
+            }
+        }
+    }
+    vector<int> result = {count};
+    return result;
+}
