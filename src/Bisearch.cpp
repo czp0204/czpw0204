@@ -2,6 +2,7 @@
 #include "../include/Search.h"  // Include the header file to match the interface
 #include <vector>  // Include the vector header
 #include <stdlib.h>
+#include <algorithm>
 #include "Search.h"
 #include <iostream>
 #include <set>
@@ -228,6 +229,30 @@ vector<vector<int>> Solution::reviewSpiralmatrix(int n )
     return res;
 
 }
+
+void Solution::moveZeroes(vector<int> &nums)
+{
+    // int slowindex =0; //
+    // for(int i = 0; i < nums.size();i++){
+    //     if(nums[i]!=0){
+    //         nums[slowindex]=nums[i];
+    //         slowindex++;
+    //     }
+    // }
+    // for(int k = slowindex;k<nums.size();k++){
+    //     nums[k]=0;
+    // }
+    int left = 0;
+    int right = 0;
+    while(right<nums.size()){
+        if(nums[right]!=0){
+            swap(nums[left],nums[right]);
+            left++;
+        }
+        right++;
+    }
+}
+
 
 ListNode* solution2::removeElements(ListNode* head,int val)
 {//delete the head node,similar with destructor to clean up any allocated memory
@@ -503,5 +528,40 @@ vector<int> HashtableSolution::forsum(vector<int> &A, vector<int> &B, vector<int
         }
     }
     vector<int> result = {count};
+    return result;
+}
+
+vector<vector<int>> HashtableSolution::threesum(vector<int> &nums)
+{   
+    vector<vector<int>> result;// default initialization to store the result
+    sort(nums.begin(),nums.end()); // first step:sort then fix the index number
+    for(int i = 0;i<nums.size();i++){
+
+        if (nums[i]>0) return result;
+        // wrong ! if(nums[i]==nums[i+1]) continue; first-de-duplication
+        if(i>0&&nums[i]==nums[i+1]) continue;// i>0 not nums[i]>0
+        int left = i+1;
+        int right = nums.size()-1;
+        while (left<right)
+        {
+            /* code */
+            int sum = nums[i]+nums[left]+nums[right];
+            if (sum>0) {right--}
+            else if (sum<0)
+            {
+                left++;
+            }
+            else{   
+                result.pushback(vector<int>{nums[i],nums[left],nums[right]});
+                // second de-duplication
+                while (right>left && nums[right]==nums[right-1]) right--;
+                while (right>left && nums[left]==nums[left+1]) left++;
+                left++;
+                right--;
+                
+                }
+       }
+        
+    }
     return result;
 }

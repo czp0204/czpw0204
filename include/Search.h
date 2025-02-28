@@ -20,6 +20,7 @@ public:
     int minSubArrayLen(int s, std::vector<int> &nums);
     vector<vector<int>> generateMatrix(int n);
     vector<vector<int>> reviewSpiralmatrix(int n );//20250214
+    void moveZeroes(vector<int>& nums);//20250228 double pointers
 };
 
 /// @brief 
@@ -85,6 +86,7 @@ public:
     void test_intersection();
     vector<int> twoSum(vector<int> nums, int target);
     vector<int> forsum(vector<int>&A,vector<int>&B,vector<int>&C,vector<int>&D);
+    vector<vector<int>> threesum(vector<int>& nums);
 };
 
 
