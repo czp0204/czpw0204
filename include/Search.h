@@ -68,6 +68,8 @@ class LinkedList
         void printlinkedlist();
         void testLinkedList();
         ListNode* reverseList(ListNode* head);
+        ListNode* reverseListRecursive(ListNode* head);
+        void testReverseListRecursive();
         void testReverseList();
         ListNode* remove_nth_fromEnd(ListNode* head,int n);
         private:

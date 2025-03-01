@@ -419,10 +419,21 @@ ListNode* LinkedList::reverseList(ListNode *head)
     }
     return pre;
 }
-//remove the nth node from the end of the list
+ListNode *LinkedList::reverseListRecursive(ListNode *head)
+{
+    if (!head || !head->next) {
+        return head;
+    }
+    ListNode* newHead = reverseListRecursive(head->next);
+    head->next->next = head;
+    head->next = nullptr;
+    return newHead;
+
+}
+// remove the nth node from the end of the list
 /*Classical sliding window problem,slow and fast,then updated together
-first key point is fast needs to move n+1 steps at first 
-cause the gap between the fast(end) and slow is n,and fast shall just befor the 
+first key point is fast needs to move n+1 steps at first
+cause the gap between the fast(end) and slow is n,and fast shall just befor the
 target index, when move n steps, it'target ,n should smaller than size,
 but in this case, we just ignore that condition or ommition */
 ListNode* LinkedList::remove_nth_fromEnd(ListNode *head, int n)
@@ -546,13 +557,13 @@ vector<vector<int>> HashtableSolution::threesum(vector<int> &nums)
         {
             /* code */
             int sum = nums[i]+nums[left]+nums[right];
-            if (sum>0) {right--}
+            if (sum>0) {right--;}
             else if (sum<0)
             {
                 left++;
             }
             else{   
-                result.pushback(vector<int>{nums[i],nums[left],nums[right]});
+                result.push_back(vector<int>{nums[i],nums[left],nums[right]});
                 // second de-duplication
                 while (right>left && nums[right]==nums[right-1]) right--;
                 while (right>left && nums[left]==nums[left+1]) left++;

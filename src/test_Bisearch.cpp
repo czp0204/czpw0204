@@ -292,8 +292,40 @@ void HashtableSolution::test_intersection() {
     std::cout << "Test case 5 passed!" << std::endl;
 }
 
+// Existing test functions...
 
+void LinkedList::testReverseListRecursive() {
+    LinkedList list;
 
+    // Test case 1: Reverse a list with multiple elements
+    ListNode* head1 = new ListNode(1);
+    head1->next = new ListNode(2);
+    head1->next->next = new ListNode(3);
+    head1->next->next->next = new ListNode(4);
+    head1->next->next->next->next = new ListNode(5);
 
+    ListNode* reversedHead1 = list.reverseListRecursive(head1);
+    std::vector<int> expected1 = {5, 4, 3, 2, 1};
+    ListNode* curr1 = reversedHead1;
+    for (int val : expected1) {
+        assert(curr1 != nullptr);
+        assert(curr1->val == val);
+        curr1 = curr1->next;
+    }
+    assert(curr1 == nullptr);
 
+    // Test case 2: Reverse a single element list
+    ListNode* head2 = new ListNode(10);
+    ListNode* reversedHead2 = list.reverseListRecursive(head2);
+    assert(reversedHead2 != nullptr);
+    assert(reversedHead2->val == 10);
+    assert(reversedHead2->next == nullptr);
+
+    // Test case 3: Reverse an empty list
+    ListNode* head3 = nullptr;
+    ListNode* reversedHead3 = list.reverseListRecursive(head3);
+    assert(reversedHead3 == nullptr);
+
+    std::cout << "All reverseListRecursive tests passed!" << std::endl;
+}
 
