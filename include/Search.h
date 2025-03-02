@@ -89,6 +89,8 @@ public:
     vector<int> twoSum(vector<int> nums, int target);
     vector<int> forsum(vector<int>&A,vector<int>&B,vector<int>&C,vector<int>&D);
     vector<vector<int>> threesum(vector<int>& nums);
+    vector<vector<string>> groupAnagrams(vector<string>& strs);
+    vector<vector<string>> groupAnaGrams(vector<string>& strs);
 };
 
 

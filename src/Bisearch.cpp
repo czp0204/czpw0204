@@ -576,3 +576,45 @@ vector<vector<int>> HashtableSolution::threesum(vector<int> &nums)
     }
     return result;
 }
+
+vector<vector<string>> HashtableSolution::groupAnagrams(vector<string> &strs)
+{
+    unordered_map<string,vector<string>> mp;
+    for(string& str:strs){
+        string key = str;
+        //for(decltype(key.size()) index = 0; index <key.size();i++){
+        sort(key.begin(),key.end());//utilize sorted string as the index of map
+        mp[key].emplace_back(str);//construct the relative ele
+    }
+    //construct the answer
+    vector<vector<string>> ans;
+    for(auto it = mp.begin();it!=mp.end();++it){ // using iterator to traverse
+        ans.emplace_back(it->second);
+    }
+    
+    
+    return ans;
+}
+
+vector<vector<string>> HashtableSolution::groupAnaGrams(vector<string> &strs)
+{   vector<vector<string>> ans;// answer
+    unordered_map<string,vector<string>> mp;//
+    for(string& str:strs){
+        string key;
+        //int count[26] = {0};
+        vector<int> count(26,0);
+        for(char c:str){
+            count[c-'a']++;
+        }
+        for(int i = 0;i<26;i++){
+            key += to_string(count[i])+'#';
+        }
+        mp[key].emplace_back(str);
+
+    }
+    for(auto it = mp.begin();it!=mp.end();++it){
+        ans.emplace_back(it->second);
+    }
+
+    return ans;
+}
