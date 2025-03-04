@@ -92,7 +92,12 @@ public:
     vector<vector<string>> groupAnagrams(vector<string>& strs);
     vector<vector<string>> groupAnaGrams(vector<string>& strs);
 };
-
+struct NewNode{
+    int val;
+    NewNode* next;
+    NewNode(int x): val(x), next(nullptr) {}
+    NewNode(int x, NewNode* nex):val(x),next(nex) {}
+};
 
 
 #endif  // SOLUTION_H

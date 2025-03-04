@@ -49,8 +49,12 @@ vector<int> nums = {3, 2, 3, 2, 3, 4, 5, 3};
     Solution solution;
     LinkedList list;
     // Call existing tests from Solution, LinkedList, HashtableSolution...
-    list.testReverseListRecursive();
-    std::cout << "All tests passed!" << std::endl;
+    //list.testReverseListRecursive();
+    //std::cout << "All tests passed!" << std::endl;
+    // int a,b;
+    // while(cin >> a >> b ){
+    //     cout << a + b << endl; practice ACM mode
+    // }
     return 0;
 }
 //cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=TRUE -S /home/czp/C++Python -B /home/czp/C++Python/build
